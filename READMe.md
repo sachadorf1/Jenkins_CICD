@@ -14,7 +14,7 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-ip << EOF
 - launch the app
 
 ## Create the EC2 instances for the app and the db in AWS
-- See other repo [here](https://github.com/sachadorf1/cloud_computing_AWS)
+- See documentation for AWS Two Tier Architecture [here](https://github.com/sachadorf1/cloud_computing_AWS)
 - Use default VPC
 - Security Groups
     - app:
