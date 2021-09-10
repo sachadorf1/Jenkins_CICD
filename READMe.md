@@ -1,5 +1,29 @@
 # Building a Continuous Integration and Continuous Delivery/Deployment (CICD) Pipeline
 
+## CI/CD or CI/CDE
+### CI — Continuous Integration
+- Developer merge and commit to main branch frequently, rather than just at the end and all at once
+- Continuously tests code
+- Automated testing
+
+### CD — Continuous Delivery
+- Extension of continuous integration
+- Automated release process
+- Deployment is completed manually
+
+### CDE - Continuous Deploymentt
+- Only a failed test will prevent a change being release to your customers automatically
+- Deployment is completed automatically
+
+### CD vs CDE
+- CD - Deployment is completed manually
+- CDE - Deployment is completed automatically
+
+### Jenkins
+- Jenkins is an open-source automation server
+- CI/CD tool
+- Supports building, deploying and automating software development projects
+
 ![](img/cicd_jenkins_diagram.png)
 
 Task:
@@ -44,7 +68,7 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-ip << EOF
 - Key: Copy the new public ssh key (in git bash, `cd .ssh` -> `cat sre_jenkins.pem` -> Copy contents)
 - Click `Add key`
 
-## Create a webhook in github repo
+## Create a webhook in Github repo
 - On Github: Go into your repo
 - Go into settings
 - Select `Webhooks`
