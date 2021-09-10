@@ -1,11 +1,8 @@
-# Change to trigger web-hook
-# Made changes in dev branch again
-# Another change
-
 # Building a Continuous Integration and Continuous Delivery/Deployment (CICD) Pipeline
 
 ![](img/cicd_jenkins_diagram.png)
 
+Task:
 For deployment job in Jenkins
 In the execute shell of CD job
 - we need to by pass the key asking stage with below command:
@@ -17,7 +14,7 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-ip << EOF
 - launch the app
 
 ## Create the EC2 instances for the app and the db in AWS
-- See other repo (*link here*)
+- See other repo [here](https://github.com/sachadorf1/cloud_computing_AWS)
 - Use default VPC
 - Security Groups
     - app:
@@ -26,17 +23,17 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-ip << EOF
         - Port 27017: 'Db Private IP' (pink)
         - SSH (22): 'My IP' (blue)
         - SSH (22): 'Jenkins IP' (green)
-![](img\app_securitygroup_colourcoded.jpg)
+![](img/app_securitygroup_colourcoded.jpg)
 
     - db
         - SSH (22): 'My IP' (blue)
         - Port 27017: 'App private IP' (yellow)
-![](img\db_securitygroup_colourcoded.jpg)
+![](img/db_securitygroup_colourcoded.jpg)
 
 ## Setting up an SSH Key between GitHub and Jenkins
 ### Step 1: Create a new key
-- Go into .ssh directory: `cd ssh`
-- Create the new key: `ssh-keygen -t rsa -b 4096 -C "SDorf@spartglobal.com"`
+- Go into .ssh directory: `cd .ssh`
+- Create the new key: `ssh-keygen -t rsa -b 4096 -C "<'github email address'>"`
 - Enter file in which to save the key: Create a name for your key e.g. sre_jenkins
 ### Step 2: Add new key to Github repo
 - On Github: Go into your repo
@@ -52,7 +49,7 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-ip << EOF
 - Go into settings
 - Select `Webhooks`
 - Select `Add webhook`
-- Payload URL: http://<'Jenkins_IP'>:8080/github-webhook/ (Insert Jenkins IP address)
+- Payload URL: http://<'Jenkins_IP'>:8080/github-webhook/
 - Which events would you like to trigger this webhook?: `Send me everything`
 - Tick `Active`
 - Click `Add webhook`
