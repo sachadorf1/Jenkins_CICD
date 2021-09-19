@@ -65,7 +65,7 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-ip << EOF
 - Select `Deploy Keys`
 - Select `Add deploy key`
 - Title: e.g. sre_jenkins
-- Key: Copy the new public ssh key (in git bash, `cd .ssh` -> `cat sre_jenkins.pem` -> Copy contents)
+- Key: Copy the new public ssh key (in git bash, `cd .ssh` -> `cat sre_jenkins.pub` -> Copy contents)
 - Click `Add key`
 
 ## Create a webhook in Github repo
@@ -100,7 +100,7 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-ip << EOF
     - In Repositories:
         - Repository URL 'your repo URL'
         - Credentials: Add SSH key:
-            - Add -> Jenkins -> Kind: 'SSH Username with private key' -> Give a description and Username -> Private key: `Enter directly` -> Enter contents of private key file (from git bash, in .ssh folder `cat <'private key file'>`) ->
+            - Add -> Jenkins -> Kind: 'SSH Username with private key' -> Give a description and Username -> Private key: `Enter directly` -> Enter contents of private key file (from git bash, in .ssh folder `cat <'private key file'>` (e.g. sre_jenkins.pem)) ->
     - In Branches to build:
         - Branch Specifier (blank for 'any'): */dev
 #### Build Triggers:
